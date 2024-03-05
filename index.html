@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #220440ff;
+            background: linear-gradient(-45deg, #FFD700, #FF6347, #4169E1, #20B2AA);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+        .hero {
+            width: 100%;
+            display: flex;
+        }
+        .hero .content{
+            width: 50%;
+        }
+        .hero .img{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero .img .container{
+            width: 200px;
+            height: 200px;
+            perspective: 500px;
+            margin: 100px;
+        }
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+        }
+
+        .face {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            border: 2px solid black;
+            position: absolute;
+            opacity: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 2rem;
+            }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: rotate3d(1, 1, 0, 45deg);
+        }
+
+        .front {
+            transform: translateZ(100px);
+        }
+
+        .back {
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .left {
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        .right {
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .top {
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .bottom {
+            transform: translateY(100px) rotateX(-90deg);
+        }
+
+        @keyframes turn {
+            from { transform: rotate3d(0, 0, 0, 0); }
+            to { transform: rotate3d(1, 1, 0, 360deg); }
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: turn 5s linear infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cube {
+                animation: none;
+                transform: rotate3d(1, 1, 0, 45deg);
+            }
+        }
+
+        .hero h1{
+            margin-top: 150px;
+            color: gold;
+            margin-left: 150px;
+            font-size: 40px;
+        }
+        .hero h2{
+            color: white;
+            margin-left: 150px;
+        }
+        .hero p{
+            color: gray;
+            margin-left: 150px;
+            font-size: 20px;
+        }
+        .hero button{
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            margin-left: 150px;
+        }
+        .hero button i{
+            margin-right: 10px;
+        }
+        h1{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 1.250s;
+        }
+        h2{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        p{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 0.750s;
+        }
+        button{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+        @keyframes slideInFromRight{
+            from {
+                opacity: 0;
+                transform: translateX(110%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero img{
+            opacity: 0;
+            transform: translateX(110%);
+            animation: slideInFromRight 1s ease-in-out forwards;
+            animation-delay: 1s;
+            animation-duration: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
+    </script>
+    <div class="hero">
+        <div class="content">
+            <h1>Web Developer</h1><br>
+            <h2>Hi, I am Prasant Jha and <br> I am a web Developer</h2><br>
+            <p>Welcome to my portfolio! I'm a passionate web developer with a focus on creating
+                responsive and user-friendly websites. I enjoy turning ideas into reality through code.</p><br><br>
+            <button><i class="fa-brands fa-whatsapp"></i>Let's chat on whatsapp</button>
+        </div>
+        <div class="img">
+            <div class="container">
+                <div class="cube">
+                    <div class="face top"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                    <div class="face bottom"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                    <div class="face left"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                    <div class="face right"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                    <div class="face front"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                    <div class="face back"><img src="./my-image.jpg" alt="" style="height: 200px; width: 200px;"></div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
