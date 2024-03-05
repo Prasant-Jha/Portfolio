@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{
+            background-color: #220440ff;
+        }
+        body::-webkit-scrollbar{
+            overflow-y: hidden;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+        }
+        .container .img{
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container .img img{
+            height: 400px;
+            width: 400px;
+            margin-top: 120px;
+        }
+        .container .content{
+            width: 50%;
+            color: white;
+        }
+        .content h1{
+            margin-top: 150px;
+        }
+        .content a{
+            font-size: 20px;
+            color: white;
+        }
+        .content button{
+            height: 40px;
+            width: 150px;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+            margin-top: 50px;
+            font-size: 20px;
+        }
+        .content button i{
+            margin-left: 20px;
+            color: black;
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInFromRight{
+            from {
+                opacity: 0;
+                transform: translateX(110%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInFromBack{
+            from {
+                opacity: 0;
+                transform: translateZ(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+
+        .content .email{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        .content .elink{
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideInFromTop 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        .content .about{
+            opacity: 0;
+            transform: translateX(110%);
+            animation: slideInFromRight 1s ease-in-out forwards;
+            animation-delay: 1s;
+            animation-duration: 2s;
+        }
+        .img img{
+            opacity: 0;
+            transform: translateZ(-20px);
+            animation: slideInFromBack 1s ease-in-out forwards;
+            animation-delay: 1s;
+            animation-duration: 3s;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
+    </script>
+    <div class="container">
+        <div class="img">
+            <img src="./my-image.jpg" alt="">
+        </div>
+        <div class="content">
+            <h1>About Me</h1><br>
+            <p class="about">Hello, I'm Prasant Jha, a dedicated web developer and a passionate student on a journey of continuous learning
+                and exploration in the vast realm of web development. Currently pursuing my academic endeavors, I am deeply
+                immersed in honing my skills to craft compelling and innovative digital experiences. From designing visually
+                appealing user interfaces to delving into the intricacies of backend development, I thrive on the dynamic
+                challenges that the field offers. With a keen eye for detail and a love for clean, efficient code, I am
+                committed to staying abreast of the latest technologies and trends. My goal is to not only create functional and
+                aesthetically pleasing websites but also contribute to the ever-evolving landscape of the digital world. Let's
+                build something extraordinary together!</p><br>
+
+            <p class="email">Email ID :</p>
+            <a href="" class="elink">prasantjha4444@gmail.com</a><br>
+
+            <button>Resume<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>  
+</body>
+</html>
