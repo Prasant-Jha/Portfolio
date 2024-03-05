@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Page</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@400;600;700&display=swap");
+
+        body{
+            background-color:  #220440ff;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 40px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: 50px;  
+        }
+
+        @keyframes flicker {
+	    0% {
+		    opacity: 0.5;
+		    text-shadow: 2px 2px 10px white;
+	    }
+	    100% {
+		    opacity: 1;
+		    text-shadow: 2px 2px 20px white;
+	    }
+    }
+
+        .text-shadow {
+	        font-style: italic;
+	        text-transform: uppercase;
+	        color: transparent;
+	        -webkit-text-stroke: #fff;
+	        -webkit-text-stroke-width: 1px;
+	        text-shadow: 2px 2px 10px white;
+	        transition: all 0.5s ease-in-out;
+	        text-align: center;
+	        letter-spacing: 0.2em;
+	        animation: flicker 0.5s ease-in-out infinite alternate;
+        }
+
+	    &:hover {
+		    color: #fff;
+	    }
+        #accordion h2{
+            font-size: 20px;
+            font-weight: bold;
+            height: 50px;
+            width: 80%;
+            margin-left: 150px;
+        }
+        #accordion div{
+            width: 76%;
+            margin-left: 155px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
+    </script>
+    <h1 class="text-shadow">Education</h1>
+    <div id="accordion">
+        <h2>Graduation (BTech in Computer Science and Engineering)</h2>
+        <div>
+            <p style="font-weight: bold;">2022-2026</p>
+            <p>institute---> RK University, Rajkot, Gujarat, India</p>
+            <p>Status---> Continuing</p>
+        </div><br><br>
+        <h2>+2(Intermediate)</h2>
+        <div>
+            <p style="font-weight: bold;">2020-2022</p>
+            <p>institute---> Rajarshi janak Secondary school, Janakpurdham, Dhanusha, Nepal</p>
+            <p>Status---> Completed</p>
+        </div><br><br>
+        <h2>Primary Education(class 1- class 10)</h2>
+        <div>
+            <p style="font-weight: bold;">2010-2020</p>
+            <p>institute---> Shree Ram secondary boarding school</p>
+            <p>Status---> Completed</p>
+        </div>
+    </div>
+    <script>
+        $( function() {
+          $( "#accordion" ).accordion();
+        } );
+    </script>
+</body>
+</html>
